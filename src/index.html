@@ -32,18 +32,19 @@
         </select>
         and I want to do
         <select class="selection" name="select" id="select-activity">
-          <option value="all">all weed things </option>
-          <option value="disp">go to a dispensary in my area</option>
-          <option value="og">start a recreational cannabis garden in my backyard</option>
-          <option value="rec">go to a recreational store when sales can begin Jan. 1, 2018</option>
+          <option value="allactivities">all weed things </option>
+          <option value="medical">go to a dispensary in my area</option>
+          <option value="outdoors">start a recreational cannabis garden in my backyard</option>
+          <option value="recreationaldispensaries">go to a recreational store when sales can begin Jan. 1, 2018</option>
         </select>
       </div>
 
       <div class="search-container">
-        <i class="fa fa-search" aria-hidden="true"></i><input class="input" id="searchbar" type="text" placeholder="Try “medical dispensaries” or ... "></input>
+        <i class="fa fa-search" aria-hidden="true"></i><input class="input" id="searchbar" type="text" placeholder="Try “medical dispensaries” or “garden” or “San Francisco”... "></input>
       </div>
 
       <div class="pot-elements-container">
+        <div class="noresults hide" id="noresults">There are no results for your search criteria! Try another search.</div>
         <% json.BAYAREA.forEach(function(d,idx){ %>
           <% var county_var = d.County.replace(/ /g,'').toLowerCase().replace('(','').replace(')','') %>
           <% if (d["MED-DISP"] == 1) { var meddisp_flag = "medicaldispensaries";} else { var meddisp_flag = "";} %>

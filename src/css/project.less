@@ -7,6 +7,14 @@ a {
   }
 }
 
+.noresults {
+  padding-top: 30px;
+  font-style: italic;
+  &.hide {
+    display: none;
+  }
+}
+
 
 .hed {
   font-family: @bold-graphics;
@@ -42,6 +50,15 @@ a {
   text-align: center;
   padding: 20px 0;
   padding-bottom: 30px;
+  @media @mobile {
+    width: 100%;
+  }
+  .fa-search {
+    @media @mobile {
+      font-size: 22px;
+      padding: 5px;
+    }
+  }
 }
 
 .pot-element {
@@ -87,7 +104,10 @@ a {
   padding: 10px 20px;
   border: 1px solid @light-gray;
   margin-left: 20px;
-  width: 400px;
+  width: 500px;
+  @media @mobile {
+    width: 80%;
+  }
 }
 input {
   font-family: @block-graphics;
@@ -121,4 +141,8 @@ input {
   border-bottom: 1px @light-gray dotted;
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
+  @media @mobile {
+    width: 100%;
+    font-size: 20px;
+  }
 }
