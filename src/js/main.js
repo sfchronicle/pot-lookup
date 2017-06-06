@@ -102,7 +102,7 @@ function check_dropdowns() {
     }
     html_str+= "<div class='update'>Last updated: "+entry['updated']+"</div>";
     document.getElementById("result").innerHTML = html_str;
-  } else {
+  } else if (chooseActivity.value != "allactivities") {
     console.log("changed the activity");
     var html_str = "";
     if (chooseActivity.value == "medical") {
@@ -140,6 +140,8 @@ function check_dropdowns() {
     }
     html_str += "</div>"
     document.getElementById("result").innerHTML = html_str;
+  } else {
+    document.getElementById("result").innerHTML = "";
   }
 
   //
