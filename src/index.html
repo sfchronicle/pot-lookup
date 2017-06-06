@@ -35,15 +35,17 @@
           <option value="allactivities">all weed things </option>
           <option value="medical">go to a dispensary in my area</option>
           <option value="outdoors">start a recreational cannabis garden in my backyard</option>
-          <option value="recreationaldispensaries">go to a recreational store when sales can begin Jan. 1, 2018</option>
+          <option value="recreational">go to a recreational store when sales can begin Jan. 1, 2018</option>
         </select>
       </div>
 
-      <div class="search-container">
-        <i class="fa fa-search" aria-hidden="true"></i><input class="input" id="searchbar" type="text" placeholder="Try “medical dispensaries” or “garden” or “San Francisco”... "></input>
-      </div>
+      <div id="result"></div>
 
-      <div class="pot-elements-container">
+      <!-- <div class="search-container">
+        <i class="fa fa-search" aria-hidden="true"></i><input class="input" id="searchbar" type="text" placeholder="Try “medical dispensaries” or “garden” or “San Francisco”... "></input>
+      </div> -->
+
+      <!-- <div class="pot-elements-container">
         <div class="noresults hide" id="noresults">There are no results for your search criteria! Try another search.</div>
         <% json.BAYAREA.forEach(function(d,idx){ %>
           <% var county_var = d.County.replace(/ /g,'').toLowerCase().replace('(','').replace(')','') %>
@@ -70,6 +72,44 @@
             <div class="update">Last updated: <%=d["updated"]%></div>
           </div>
         <% }); %>
+      </div> -->
+
+      <div class="pot-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Medical dispensaries</th>
+              <th>Recreational pot gardens</th>
+              <th>Recreational stores</th>
+              <th>Last updated</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% json.BAYAREA.forEach(function(d,idx){ %>
+            <tr>
+              <th class="county"><%=d["County"]%></th>
+              <% if (d["MED-DISP"] == 1){ %>
+                <th><i class="fa fa-check-square-o" aria-hidden="true"></i></th>
+              <% } else { %>
+                <th><i class="fa fa-times" aria-hidden="true"></i></th>
+              <% } %>
+              <% if (d["REC-OG"] == 1){ %>
+                <th><i class="fa fa-check-square-o" aria-hidden="true"></i></th>
+              <% } else { %>
+                <th><i class="fa fa-times" aria-hidden="true"></i></th>
+              <% } %>
+              <% if (d["REC-DISP"] == 1){ %>
+                <th><i class="fa fa-check-square-o" aria-hidden="true"></i></th>
+              <% } else { %>
+                <th><i class="fa fa-times" aria-hidden="true"></i></th>
+              <% } %>
+              <th class="update-date"><%=d["updated"]%></th>
+            </tr>
+          <% }); %>
+          </tbody>
+
+        </table>
       </div>
 
       <div class="note"><span class="bold-class">About This Project:</span> Medical marijuana was legalized in 1996, but most places still maintain bans on any walk-in retail stores, called dispensaries. Californians also legalized recreational pot for adults 21 and over in 2016. Adults 21 and over can possess up to an ounce and grow up to six plants indoors. But local cities and counties have immense control over some personal and any commercial activity in their area. Cities and counties can ban personal outdoor cultivation, and many have begun. They can also ban pot shops in their area.</div>
