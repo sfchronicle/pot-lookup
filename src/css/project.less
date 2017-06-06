@@ -147,11 +147,30 @@ input {
   }
 }
 
-.fa-times {
+.fa-times, .no {
   color: red;
 }
-.fa-check-square-o {
+.fa-check-square-o, .yes {
   color: @green;
+}
+.no, .yes {
+  font-family: @med-graphics;
+}
+.county-result {
+  font-family: @med-graphics;
+  font-style: italic;
+}
+
+#result {
+  text-align: center;
+  border: 2px solid @green;
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  &:empty {
+    display:none;
+  }
 }
 
 .pot-table {
