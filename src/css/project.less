@@ -1,5 +1,12 @@
 @green:#1f821f;//#196819;// #2C6E2A;//#638c08;
 
+.bold-text {
+  font-family: @boldest-graphics;
+  font-style: italic;
+  text-transform: uppercase;
+  padding-right: 2px;
+}
+
 a {
   color: @green;
   &:hover {
@@ -24,25 +31,74 @@ a {
 
 .chatter {
   font-size: 16px;
+  @media @mobile {
+    padding: 0;
+  }
 }
 
 .credit {
   font-family: @med-graphics;
   padding: 30px 0;
+  @media @mobile {
+    padding: 20px 10px;
+  }
+}
+
+.clear {
+  color: @dark-gray;
+  font-style: italic;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button {
+  background: white;//lighten(@light-gray,10%);
+  border: 2px solid @green;
+  text-align: center;
+  width: 300px;
+  border-radius: 5px;
+  font-family: @med-graphics;
+  color: @green;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px 0;
+  &.hide {
+    display: none;
+  }
+  &:hover, &.active {
+    background: @green;
+    color: white;
+    cursor: pointer;
+  }
+  .fa {
+    padding-right: 5px;
+  }
 }
 
 .pot-elements-container {
+  margin-top: 20px;
   height: 800px;
   overflow-y: scroll;
-  padding: 20px;
+  padding: 10px 20px;
   border: 2px solid @green;
+  border-radius: 5px;
+  background: white;//lighten(@light-gray,10%);
+  &.hide {
+    display: none;
+  }
 }
 
 .interactive-wrapper {
   font-family: @block-graphics;
   font-size: 16px;
   max-width: 900px;
+  width: 95%;
   margin: auto;
+  background: lighten(@green,62%);
+  padding: 40px;
+  @media @mobile {
+    padding: 20px;
+  }
 }
 
 .search-container {
@@ -97,6 +153,15 @@ a {
   .bold-class {
     font-family: @bold-graphics;
   }
+  @media @mobile {
+    padding-top: 30px;
+    padding: 10px;
+  }
+  &.top {
+    @media @mobile {
+      padding-top: 50px;
+    }
+  }
 }
 
 #searchbar {
@@ -106,7 +171,7 @@ a {
   margin-left: 20px;
   width: 500px;
   @media @mobile {
-    width: 80%;
+    padding: 10px;
   }
 }
 input {
@@ -116,6 +181,11 @@ input {
 
 .sentence {
   text-align: center;
+  &.bottom {
+    @media @mobile {
+      padding-top: 20px;
+    }
+  }
 }
 
 .pot-elements-container {
@@ -131,21 +201,45 @@ input {
 .selection {
   cursor: pointer;
   font-family: @bold-graphics;
-  font-size: 22px;
+  font-size: 16px;
   border: none;
   padding: 5px 20px;
   margin: 5px;
   color: @green;
-  background: lighten(@light-gray,15%);
+  // background: lighten(@light-gray,10%);
+  background: white;
   // border-radius: 0px;
-  border-bottom: 1px @light-gray dotted;
-  -webkit-appearance: none;
+  border-bottom: 1px @dark-gray dotted;
+  // -webkit-appearance: none;
   -webkit-border-radius: 0px;
   @media @mobile {
-    width: 100%;
-    font-size: 20px;
+    width: 90%;
+    font-size: 16px;
   }
 }
+
+.select-container {
+  position: relative;
+  height: 100%;
+  display: inline-block;
+}
+
+// #select-county {
+//   &:after {
+//     content: '\f107';
+//     display: block;
+//     font-size: 30px;
+//     font: normal normal normal 30px/1 FontAwesome;
+//     position: absolute;
+//     right: 10px;
+//     top: 7px;
+//     @media @mobile {
+//       font-size: 25px;
+//       top: 12px;
+//       right: 10px;
+//     }
+//   }
+// }
 
 .fa-times, .no {
   color: red;
@@ -162,6 +256,7 @@ input {
 }
 
 #result {
+  background: lighten(@light-gray,10%);
   text-align: center;
   border: 2px solid @green;
   padding: 20px;
@@ -171,10 +266,19 @@ input {
   &:empty {
     display:none;
   }
+  @media @mobile {
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+  }
 }
 
 .pot-table {
-  padding-top: 40px;
+  padding: 40px 0;
+  padding-bottom: 20px;
+  @media @mobile {
+    padding: 20px 0;
+  }
   .update-date {
     font-style: italic;
     font-size: 12px;
@@ -185,10 +289,24 @@ input {
     }
   }
   thead {
-    background: darken(@green,10%);
+    background: darken(@green,5%);
     color: white;
   }
   .county {
     font-family: @med-graphics;
   }
+}
+
+th {
+  padding: 4px;
+  @media @mobile {
+    // padding: 5px 10px;
+    padding: 0;
+    font-size: 12px;
+  }
+}
+
+.list-hed {
+  padding-bottom: 5px;
+  // border-bottom: 1px solid @dark-gray;
 }
