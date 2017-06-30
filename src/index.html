@@ -7,6 +7,7 @@
     <meta name="__sync_contentCategory" content="meterA">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
 
     <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
 
@@ -18,8 +19,14 @@
   <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
     <div class="interactive-wrapper">
 
-      <div class="hed">What are the weed laws in my city?</div>
-      <div class="chatter">Want to go to a medical marijuana dispensary in your area? Want to start an outdoor garden? Hoping to go to a recreational store nearby when sales can begin Jan. 1 2018? Chances are — you're not going to have those options. Check below to see what the weed laws are in your city.</div>
+      <div class="GSlogo">
+        <a href="http://www.greenstate.com/" target="_blank">
+          <img src="./assets/logos/gs-logo.png"></img>
+        </a>
+      </div>
+
+      <div class="hed">What are the cannabis laws in my city?</div>
+      <div class="chatter">Want to go to a medical marijuana dispensary in your area? Want to start an outdoor garden? Hoping to go to a recreational store nearby when sales can begin Jan. 1, 2018? Chances are you may not have those options. Check below to see what the laws are in these Northern California cities and counties.</div>
 
       <div class="sentence">
         Choose a city:
@@ -41,7 +48,7 @@
             <option value="allactivities"> </option>
             <option value="medical">go to a dispensary in my area</option>
             <option value="outdoors">start a recreational cannabis garden in my backyard</option>
-            <option value="recreational">go to a recreational store when sales can begin Jan. 1, 2018</option>
+            <option value="recreational">go to a recreational store</option>
           </select>
         </span>
         <span class="clear" id="clearactivity"><i class="fa fa-times-circle" aria-hidden="true"></i> Clear selection</span>
@@ -49,8 +56,8 @@
 
       <div id="result"></div>
 
-      <div class="button" id="showall"><i class="fa fa-arrow-down" aria-hidden="true"></i>Show all laws for all counties</div>
-      <div class="button hide" id="hideall"><i class="fa fa-arrow-up" aria-hidden="true"></i>Hide all laws for all counties</div>
+      <div class="button" id="showall"><i class="fa fa-arrow-down" aria-hidden="true"></i>Show all laws</div>
+      <div class="button hide" id="hideall"><i class="fa fa-arrow-up" aria-hidden="true"></i>Hide all laws</div>
 
       <div class="pot-elements-container hide" id="biglist">
       <% json.BAYAREA.forEach(function(d,idx){ %>
@@ -80,7 +87,7 @@
       <% }); %>
       </div>
 
-      <div class="note top"><span class="bold-class">About This Project:</span> Medical marijuana was legalized in 1996, but most places still maintain bans on any walk-in retail stores, called dispensaries. Californians also legalized recreational pot for adults 21 and over in 2016. Adults 21 and over can possess up to an ounce and grow up to six plants indoors. But local cities and counties have immense control over some personal and any commercial activity in their area. Cities and counties can ban personal outdoor cultivation, and many have begun. They can also ban pot shops in their area.</div>
+      <div class="note top"><span class="bold-class">About This Project:</span> Medical marijuana was legalized in 1996, but most places still maintain bans on any walk-in retail stores, called dispensaries. Californians also legalized recreational pot for adults 21 and over in 2016. Adults 21 and over can possess up to an ounce and grow up to six plants indoors or outdoors in a locked space not visible to the public. But local cities and counties have immense control over some personal and any commercial activity in their area. Cities and counties can ban personal outdoor cultivation, and many have begun. They can also ban recreational pot shops in their area.</div>
 
       <div class="note"><span class="bold-class">Help Us With This Project!</span> See something wrong? Local weed laws are constantly changing in California’s 400+ cities and counties, and we're doing our best to keep readers informed. Send an email to cannabis editor <a href="mailto:ddowns@sfchronicle.com">David Downs</a> if something seems out of date.</div>
 
@@ -93,6 +100,9 @@
 
     <script>
       var potData = <%= JSON.stringify(json.BAYAREA) %>;
+    </script>
+    <script>
+      var pymChild = new pym.Child({polling: 500});
     </script>
 
     <script src="app.js" async></script>

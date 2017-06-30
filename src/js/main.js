@@ -29,6 +29,7 @@ function check_dropdowns() {
     } else {
       html_str += "<div class='rec-disp'>You will <span class='answer no'>not</span> have recreational stores to go to come Jan. 1, 2018.</div>";
     }
+    html_str += "<div class='update'>Last updated: "+entry["updated"]+"</div>"
     document.getElementById("result").innerHTML = html_str;
 
   // we are picking an activity
@@ -53,15 +54,15 @@ function check_dropdowns() {
       } else if (chooseActivity.value == "outdoors") {
         html_str = "<div>You are not allowed to start a recreational pot garden anywhere outdoors in California.</div>";
       } else {
-        html_str = "<div>There are no recreational stores to go to come Jan. 1, 2018 in California.</div>";
+        html_str = "<div>There are no licensed recreational stores to go to come Jan. 1, 2018 in the Bay Area.</div>";
       }
     } else {
       if (chooseActivity.value == "medical") {
-        html_str = "<div><div class='list-hed'>There are medical dispensaries open in the following counties:</div>";
+        html_str = "<div><div class='list-hed'>There are medical dispensaries open in the following cities and counties:</div>";
       } else if (chooseActivity.value == "outdoors") {
-        html_str = "<div><div class='list-hed'>You are allowed to start a recreational pot garden in the following counties:</div>";
+        html_str = "<div><div class='list-hed'>You are allowed to start a recreational pot garden in the following cities and counties:</div>";
       } else {
-        html_str = "<div><div class='list-hed'>There are recreational stores to go to come Jan. 1, 2018 in the following counties:</div>";
+        html_str = "<div><div class='list-hed'>There are licensed recreational stores in the following cities and counties:</div>";
       }
       if (results.length > 1){
         results.forEach(function(result,rIDX) {
@@ -85,10 +86,12 @@ function check_dropdowns() {
 chooseCounty.addEventListener('change', function(d) {
   chooseActivity.value = "allactivities";
   check_dropdowns();
+  pymChild.sendHeight();
 });
 chooseActivity.addEventListener('change', function(d) {
   chooseCounty.value = "california";
   check_dropdowns();
+  pymChild.sendHeight();
 });
 
 var activeBox = 0;
@@ -104,7 +107,9 @@ showButton.addEventListener("click",function(d) {
     document.getElementById("biglist").classList.add("hide");
     activeBox = 0;
     hideButton.classList.add("hide");
-    showButton.classList.remove("hide");  }
+    showButton.classList.remove("hide");
+  }
+  pymChild.sendHeight();
 });
 hideButton.addEventListener("click",function(d) {
   if (activeBox == 0){
@@ -116,15 +121,19 @@ hideButton.addEventListener("click",function(d) {
     document.getElementById("biglist").classList.add("hide");
     activeBox = 0;
     hideButton.classList.add("hide");
-    showButton.classList.remove("hide");  }
+    showButton.classList.remove("hide");
+  }
+  pymChild.sendHeight();
 });
 
 document.getElementById("clearcity").addEventListener("click",function(d) {
   chooseCounty.value = "california";
   check_dropdowns();
+  pymChild.sendHeight();
 });
 
 document.getElementById("clearactivity").addEventListener("click",function(d) {
   chooseActivity.value = "allactivities";
   check_dropdowns();
+  pymChild.sendHeight();
 });
