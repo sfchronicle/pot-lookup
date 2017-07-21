@@ -27,7 +27,7 @@ function check_dropdowns() {
     if (entry["REC-DISP"] == 1){
       html_str += "<div class='rec-disp'>You <span class='answer yes'>will</span> have recreational stores to go to come Jan. 1, 2018.</div>";
     } else {
-      html_str += "<div class='rec-disp'>You will <span class='answer no'>not</span> have recreational stores to go to come Jan. 1, 2018.</div>";
+      html_str += "<div class='rec-disp'>There are <span class='answer no'>no</span> recreational stores licensed for the Jan. 1, 2018 launch.</div>";
     }
     html_str += "<div class='update'>Last updated: "+entry["updated"]+"</div>"
     document.getElementById("result").innerHTML = html_str;
@@ -54,7 +54,7 @@ function check_dropdowns() {
       } else if (chooseActivity.value == "outdoors") {
         html_str = "<div>You are not allowed to start a recreational pot garden anywhere outdoors in California.</div>";
       } else {
-        html_str = "<div>There are no licensed recreational stores to go to come Jan. 1, 2018 in the Bay Area.</div>";
+        html_str = "<div>No facilities are licensed for the Jan. 1, 2018 launch of recreational sales.</div>";
       }
     } else {
       if (chooseActivity.value == "medical") {
