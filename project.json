@@ -1,18 +1,18 @@
 {
   "year":"2017",
-  "title": "",
-  "description": "",
-  "seo_title": "",
-  "author":"",
-  "hearst_category":"",
-  "date":"2017-04-02",
+  "title": "What are the cannabis laws in my city?",
+  "description": "Want to go to a medical marijuana dispensary in your area? Hoping to start an outdoor garden? Use our interactive to see what the laws are in different California cities and counties.",
+  "seo_title": "What are the marijuana laws in my city?",
+  "author":"David Downs and Emma O'Neill and Spencer Silva",
+  "hearst_category":"Green State",
+  "date":"2017-09-01",
   "url": "http://projects.sfchronicle.com/2017/",
-  "slug": "SLUG-HERE-WITH-TRAILING-SLASH/",
-  "twitter_text":"",
+  "slug": "embed-pot-lookup/",
+  "twitter_text":"Do you know your cannabis laws? Use our interactive to see the regulations in different California cities and counties.",
   "hashtag":"",
-  "image": "assets/social.jpg",
+  "image": "assets/potlaws-social.jpg",
   "sheets": ["1nVGwPo301SboRhYDTovEUyTJ89r6iTwD5Ig6HkWqyHs"],
   "docsID":"",
   "production": false,
-  "embedded": true
+  "embedded": false
 }
