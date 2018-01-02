@@ -97,9 +97,9 @@
               <div class="rec-og"><i class="fa fa-times" aria-hidden="true"></i>You can <span class="answer no">not</span> start a recreational pot garden outdoors.</div>
             <% } %>
             <% if (d["REC-DISP"] == 1){ %>
-              <div class="rec-disp"><i class="fa fa-check-square-o" aria-hidden="true"></i>You <span class="answer yes">will</span> have recreational stores to go to come Jan. 1, 2018.</div>
+              <div class="rec-disp"><i class="fa fa-check-square-o" aria-hidden="true"></i>There <span class="answer yes">are</span> recreational stores in your town.</div>
             <% } else { %>
-              <div class="rec-disp"><i class="fa fa-times" aria-hidden="true"></i>You will <span class="answer no">not</span> have recreational stores to go to come Jan. 1, 2018.</div>
+              <div class="rec-disp"><i class="fa fa-times" aria-hidden="true"></i>There are <span class="answer no">no</span> recreational stores in your town.</div>
             <% } %>
             <div class="update">Last updated: <%=d["updated"]%></div>
           </div>
@@ -124,7 +124,7 @@
       var pymChild = new pym.Child({polling: 500});
     </script>
 
-    <script src="app.js" async></script>
+    <script src="app.js?2b" async></script>
     <%= t.include("partials/_helloSFC.html") %>
 
   </body>

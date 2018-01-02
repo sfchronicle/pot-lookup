@@ -25,9 +25,9 @@ function check_dropdowns() {
       html_str += "<div class='rec-og'>You can <span class='answer no'>not</span> start a recreational pot garden outdoors.</div>";
     }
     if (entry["REC-DISP"] == 1){
-      html_str += "<div class='rec-disp'>You <span class='answer yes'>will</span> have recreational stores to go to come Jan. 1, 2018.</div>";
+      html_str += "<div class='rec-disp'>There <span class='answer yes'>are</span> recreational stores in your town.</div>";
     } else {
-      html_str += "<div class='rec-disp'>There are <span class='answer no'>no</span> recreational stores licensed for the Jan. 1, 2018 launch.</div>";
+      html_str += "<div class='rec-disp'>There are <span class='answer no'>no</span> recreational stores in your town.</div>";
     }
     html_str += "<div class='update'>Last updated: "+entry["updated"]+"</div>"
     document.getElementById("result").innerHTML = html_str;
